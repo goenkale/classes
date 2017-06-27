@@ -40,10 +40,10 @@ public class DocumentRemoval {
 			List<ArchivedDocument> allDocs = processAPI.searchArchivedDocuments(globalSearch).getResult();
 			
 			for(Document doc : allDocs){
-				//archive documents
+				//for archived documents
 				processAPI.deleteContentOfArchivedDocument(doc.getId());
 				System.out.println("document id: " + doc.getId() + " has been deleted from DOCUMENT table!");
-				//documents not archived
+				//for documents not archived
 				//processAPI.removeDocument(doc.getId());
 			}
 					    					
