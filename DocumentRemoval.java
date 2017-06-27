@@ -43,7 +43,7 @@ public class DocumentRemoval {
 				//archive documents
 				processAPI.deleteContentOfArchivedDocument(doc.getId());
 				System.out.println("document id: " + doc.getId() + " has been deleted from DOCUMENT table!");
-				//not archived
+				//documents not archived
 				//processAPI.removeDocument(doc.getId());
 			}
 					    					
