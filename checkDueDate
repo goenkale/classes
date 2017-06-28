@@ -1,0 +1,12 @@
+//UPDATE dueDate task if Friday or Saturday adding 2 days
+def taskDueDate = apiAccessor.getProcessAPI().getHumanTaskInstance(activityInstanceId).getExpectedEndDate()
+
+Calendar cal = Calendar.getInstance();
+cal.setTime(taskDueDate);
+def dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+
+if(dayOfWeek == 6 || dayOfWeek == 7){
+	cal.add(Calendar.DAY_OF_WEEK, 2);
+	apiAccessor.getProcessAPI().updateDueDateOfTask(activityInstanceId, cal.getTime());
+	System.out.println ("dueDate updated to: " + cal.getTime());
+}
